@@ -1,7 +1,7 @@
 package com.example.demo.controller;
 
-import com.example.demo.client.ApiClient;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -14,24 +14,25 @@ import reactor.core.publisher.Mono;
 @RestController
 @RequestMapping("demo")
 public class DemoController {
-  private final ApiClient apiClient;
 
-@GetMapping("/{number}")
+  @GetMapping("/hello")
+  public Mono<ResponseEntity<String>> hello() {
+    return Mono.just(new ResponseEntity<>("HELLO", HttpStatus.OK));
+  }
+
+  @GetMapping("/{number}")
   public Mono<ResponseEntity<String>> number(@PathVariable("number") String number) {
-    return apiClient.number(number);
+    return Mono.just(new ResponseEntity<>("GOT " + number, HttpStatus.OK));
   }
 
   @PostMapping("/{number}")
   public Mono<ResponseEntity<String>> numberPost(@PathVariable("number") String number) {
-    return apiClient.numberPost(number);
+    return Mono.just(new ResponseEntity<>("POSTED " + number, HttpStatus.OK));
   }
 
   @GetMapping("/ise")
   public Mono<ResponseEntity<String>> ise() {
-    return apiClient.ise();
+    return Mono.just(new ResponseEntity<>("YOU GOT ISE'D", HttpStatus.INTERNAL_SERVER_ERROR));
   }
-
-
-
 
 }
