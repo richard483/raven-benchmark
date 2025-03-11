@@ -16,6 +16,11 @@ import reactor.core.publisher.Mono;
 public class DemoController {
   private final ApiClient apiClient;
 
+  @GetMapping("/hello")
+  public Mono<ResponseEntity<String>> number() {
+    return apiClient.hello();
+  }
+
 @GetMapping("/{number}")
   public Mono<ResponseEntity<String>> number(@PathVariable("number") String number) {
     return apiClient.number(number);
