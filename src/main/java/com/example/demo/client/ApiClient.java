@@ -15,6 +15,13 @@ import reactor.core.publisher.Mono;
 public interface ApiClient {
 
   @RequestMapping(
+      value = "/hello",
+      method = RequestMethod.GET,
+      produces = MediaType.APPLICATION_JSON_VALUE
+  )
+  Mono<ResponseEntity<String>> hello();
+
+  @RequestMapping(
       value = "/{number}",
       method = RequestMethod.GET,
       produces = MediaType.APPLICATION_JSON_VALUE

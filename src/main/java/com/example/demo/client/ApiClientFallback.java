@@ -10,6 +10,11 @@ import reactor.core.publisher.Mono;
 public class ApiClientFallback implements ApiClient {
 
   @Override
+  public Mono<ResponseEntity<String>> hello() {
+    return null;
+  }
+
+  @Override
   public Mono<ResponseEntity<String>> number(String number) {
     return null;
   }

@@ -2,6 +2,7 @@ package com.example.demo.controller;
 
 import com.example.demo.client.ApiClient;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -13,10 +14,16 @@ import reactor.core.publisher.Mono;
 @RequiredArgsConstructor
 @RestController
 @RequestMapping("demo")
+@Slf4j
 public class DemoController {
   private final ApiClient apiClient;
 
-@GetMapping("/{number}")
+  @GetMapping("/hello")
+  public Mono<ResponseEntity<String>> number() {
+    return apiClient.hello();
+  }
+
+  @GetMapping("/{number}")
   public Mono<ResponseEntity<String>> number(@PathVariable("number") String number) {
     return apiClient.number(number);
   }
