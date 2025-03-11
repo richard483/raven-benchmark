@@ -10,33 +10,33 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import reactor.core.publisher.Mono;
 
 @RavenApiClient(
-    name = "apiClient"
+    name = "ravenApiClient"
 )
 public interface ApiClient {
 
   @RequestMapping(
-      value = "/hello",
+      value = "/demo/hello",
       method = RequestMethod.GET,
       produces = MediaType.APPLICATION_JSON_VALUE
   )
   Mono<ResponseEntity<String>> hello();
 
   @RequestMapping(
-      value = "/{number}",
+      value = "/demo/{number}",
       method = RequestMethod.GET,
       produces = MediaType.APPLICATION_JSON_VALUE
   )
   Mono<ResponseEntity<String>> number(@PathVariable("number") String number);
 
   @RequestMapping(
-      value = "/{number}",
+      value = "/demo/{number}",
       method = RequestMethod.POST,
       produces = MediaType.APPLICATION_JSON_VALUE
   )
   Mono<ResponseEntity<String>> numberPost(@RequestBody String name);
 
   @RequestMapping(
-      value = "/ise",
+      value = "/demo/ise",
       method = RequestMethod.GET,
       produces = MediaType.APPLICATION_JSON_VALUE
   )
