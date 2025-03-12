@@ -17,7 +17,6 @@ public class DemoController {
 
   @GetMapping("/hello")
   public Mono<ResponseEntity<String>> hello() {
-    System.out.println("hello");
     return Mono.just(new ResponseEntity<>("HELLO", HttpStatus.OK));
   }
 
