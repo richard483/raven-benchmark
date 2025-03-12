@@ -39,7 +39,7 @@
     <dependency>
       <artifactId>raven-apiclient</artifactId>
       <groupId>com.nephren</groupId>
-      <version>0.0.2-SNAPSHOT</version>
+      <version>0.0.15-SNAPSHOT</version>
     </dependency>
     <dependency>
       <artifactId>lombok</artifactId>

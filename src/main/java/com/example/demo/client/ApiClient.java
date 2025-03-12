@@ -10,7 +10,9 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import reactor.core.publisher.Mono;
 
 @RavenApiClient(
-    name = "ravenApiClient"
+    name = "ravenApiClient",
+    fallback = ApiClientFallback.class
+
 )
 public interface ApiClient {
 
