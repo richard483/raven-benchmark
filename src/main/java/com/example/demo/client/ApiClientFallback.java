@@ -1,13 +1,15 @@
 package com.example.demo.client;
 
-import lombok.extern.slf4j.Slf4j;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Component;
 import reactor.core.publisher.Mono;
 
 @Component
-@Slf4j
 public class ApiClientFallback implements ApiClient {
+
+  private Logger log = LoggerFactory.getLogger(ApiClientFallback.class);
 
   @Override
   public Mono<ResponseEntity<String>> hello() {
