@@ -28,7 +28,9 @@ public class DemoController {
 
   @PostMapping("/number")
   public Mono<ResponseEntity<String>> numberPost(@RequestBody() String number) {
-    return Mono.just(new ResponseEntity<>("POSTED " + number, HttpStatus.OK));
+    return Mono.just(new ResponseEntity<>(
+        "POSTED " + number + " is " + (number.matches("[0-9]*") ? "a number" : "not a number"),
+        HttpStatus.OK));
   }
 
   @GetMapping("/ise")
