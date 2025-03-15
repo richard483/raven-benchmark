@@ -6,6 +6,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import reactor.core.publisher.Mono;
@@ -25,8 +26,8 @@ public class DemoController {
     return Mono.just(new ResponseEntity<>("GOT " + number, HttpStatus.OK));
   }
 
-  @PostMapping("/{number}")
-  public Mono<ResponseEntity<String>> numberPost(@PathVariable("number") String number) {
+  @PostMapping("/number")
+  public Mono<ResponseEntity<String>> numberPost(@RequestBody() String number) {
     return Mono.just(new ResponseEntity<>("POSTED " + number, HttpStatus.OK));
   }
 
